@@ -1,0 +1,14 @@
+{
+  "title": "OWASP SKF GraphQL Injections",
+  "description": "A Flask blog (login admin/admin) with an /admin page backed by GraphQL queries: one pings a server with nc through os.system, one looks a user up with a raw SQL filter.",
+  "question": "Inject through the GraphQL arguments of the admin features to run an OS command and to dump data with SQL injection.",
+  "category": "WEB",
+  "difficulty": 2,
+  "evidence_kind": "SECRET",
+  "capabilities": [
+    "graphql",
+    "command-injection",
+    "sql-injection",
+    "api"
+  ]
+}

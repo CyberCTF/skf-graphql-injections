@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://www.isoloom.com/schema/v1.json
+# OWASP SKF GraphQL Injections (OWASP Security Knowledge Framework labs, by Glenn ten Cate, Riccardo ten Cate and the SKF contributors) as an Isoloom spec:
+# a Flask blog whose GraphQL resolvers build a shell command and a SQL filter from query arguments (GraphQL command and SQL injection). The SKF lab folder python/graphql-injections is
+# vendored unchanged in build/web/app/ and built by an overlay of its Dockerfile (build/web/Dockerfile).
+# `isoloom generate`, then `isoloom run docker`.
+version: 1
+name: skf-graphql-injections
+
+networks:
+  lab: { cidr: 10.60.159.0/24, internet: false }
+
+machines:
+  web:
+    networks: { lab: 10 }
+    services: [{ port: 5000, name: web, http: true, publish: 5050 }]
+    resources: { cpus: 1, memory_mb: 256 }
+    docker:
+      build: build/web
+
+checks:
+  - name: the lab answers
+    http: http://web:5000/
+    wait: 120
+  - name: admin/admin logs in and /graphql answers
+    script: checks/login.sh
+
+message: |
+  OWASP SKF GraphQL Injections answers at http://localhost:{{ machines.web.services.0.publish }}/.
+  Log in as admin/admin and find the admin page. Which GraphQL queries does it send?

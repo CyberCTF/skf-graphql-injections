@@ -1,0 +1,17 @@
+# Versions current on 2022-02-07, the date of the lab's last requirements.txt change. Upstream leaves
+# these unpinned and today's releases no longer install on the image's Python 3.6.
+Flask==2.0.2
+Werkzeug==2.0.2
+Jinja2==3.0.3
+itsdangerous==2.0.1
+click==8.0.3
+MarkupSafe==2.0.1
+Flask-GraphQL==2.0.1
+Flask-Migrate==3.1.0
+Flask-SQLAlchemy==2.5.1
+graphene-sqlalchemy==2.3.0
+Flask-HTTPAuth==4.5.0
+SQLAlchemy==1.4.31
+alembic==1.7.6
+Mako==1.1.6
+greenlet==1.1.2
