@@ -4,11 +4,5 @@
   "question": "Inject through the GraphQL arguments of the admin features to run an OS command and to dump data with SQL injection.",
   "category": "WEB",
   "difficulty": 2,
-  "evidence_kind": "SECRET",
-  "capabilities": [
-    "graphql",
-    "command-injection",
-    "sql-injection",
-    "api"
-  ]
+  "evidence_kind": "SECRET"
 }
