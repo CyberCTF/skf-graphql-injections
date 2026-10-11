@@ -1,0 +1,42 @@
+{
+  "objectives": [
+    {
+      "key": "main",
+      "title": "Read the flag",
+      "prompt": "Turn the admin GraphQL features into command execution and read /ctf/flag.",
+      "check": {
+        "evidence": "SECRET",
+        "format": "FLAG{%s}"
+      },
+      "dev": "FLAG{dev-skf-graphql-injections}",
+      "hints": [
+        "One admin feature pings a host with a shell command.",
+        "Read about OS command injection reached through API arguments."
+      ],
+      "steps": [
+        {
+          "key": "tool",
+          "title": "Identify the tool",
+          "prompt": "Which network tool does the ping feature call?",
+          "check": {
+            "answer": [
+              "nc",
+              "netcat"
+            ]
+          }
+        },
+        {
+          "key": "class",
+          "title": "Name the weakness",
+          "prompt": "Which injection class leads to the flag file?",
+          "check": {
+            "answer": [
+              "command injection",
+              "os command injection"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

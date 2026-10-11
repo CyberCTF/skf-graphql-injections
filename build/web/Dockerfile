@@ -5,6 +5,7 @@
 #   needs a newer Python than the image's 3.6).
 # - the populate-database.py step is skipped: the vendored data.sqlite is already populated, and the
 #   script fails on its first insert (sqlite3.IntegrityError: UNIQUE constraint failed: users.username).
+# - it creates /ctf owned by the lab user, for the per-player flag.
 
 ### Static layers
 
@@ -39,6 +40,9 @@ WORKDIR /home/app/graphql-injections
 RUN chown -R app:app /home/app/graphql-injections
 
 # Switching to the limited user
+# Overlay: the flag folder /ctf, owned by the lab user so the flag init (which runs as that user) can write it.
+RUN mkdir -p /ctf && chown app:app /ctf
+
 USER app
 
 # Installing needed binaries and deps
