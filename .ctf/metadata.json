@@ -1,8 +1,11 @@
 {
+  "project_name": "cyberlabs-skf-graphql-injections",
+  "slug": "skf-graphql-injections",
   "title": "OWASP SKF GraphQL Injections",
   "description": "A Flask blog (login admin/admin) with an /admin page backed by GraphQL queries: one pings a server with nc through os.system, one looks a user up with a raw SQL filter.",
-  "question": "Inject through the GraphQL arguments of the admin features to run an OS command, then read /ctf/flag (login admin/admin).",
-  "category": "WEB",
+  "category": "web",
   "difficulty": 2,
-  "evidence_kind": "SECRET"
+  "evidence_kind": "SECRET",
+  "capabilities": [],
+  "question": "Inject through the GraphQL arguments of the admin features to run an OS command, then read /ctf/flag (login admin/admin)."
 }
